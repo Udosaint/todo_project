@@ -1,0 +1,48 @@
+{% extends 'todo/main.html' %} 
+ 
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="container-fluid mb-3 col-md-6">
+ <div class="card border-primary mb-3 ">
+   <div class="card-header text-uppercase">
+      <p>Update profile <a href="{% url 'todo' %}" class="nav-link float-end"><i class="fas fa-arrow-left"></i> Back</a></p>
+      
+   </div> 
+   <div class="card-body">
+     <form method="POST" action="" enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <div class="form-floating mb-3">
+        {{form.fullname}}
+        {% comment %} <input type="text" class="form-control" name="fullname" id="fullname" placeholder="name@example.com"> {% endcomment %}
+        <label for="fullname">Fullname</label>
+      </div>       
+      
+      <div class="form-floating mb-3">
+        {{form.phone}}
+        {% comment %} <input type="text" class="form-control" name="phone" id="phone" placeholder="name@example.com"> {% endcomment %}
+        <label for="phone">Phone Number</label>
+      </div>       
+      
+      <div class="form-floating mb-3">
+        {{form.address}}
+        {% comment %} <input type="text" class="form-control" name="address" id="address" placeholder="name@example.com"> {% endcomment %}
+        <label for="address">Address</label>
+      </div>
+
+      <div class="form-group">
+        {{form.avatar}}
+        {% comment %} <input class="form-control " type="file" id="formFile"> {% endcomment %}
+      </div>
+
+       <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Update Profile</button>
+     </form>
+   </div>
+ </div>
+</div>
+
+{% endblock content %}

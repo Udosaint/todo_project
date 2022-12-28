@@ -1,0 +1,39 @@
+{% extends 'todo/main.html' %} 
+ 
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="container-fluid mb-3 col-md-6">
+ <div class="card ">
+   <div class="container-fluid card-header bg-primary text-uppercase">
+      <p>My profile <a href="{% url 'todo' %}" class="nav-link float-end"><i class="fas fa-arrow-left"></i> Back</a></p> 
+   </div> 
+   <div class="card-body ">
+
+     
+      <div class="text-center">
+         <img class="mb-4 mx-auto text-center img-fluid rounded rounded-5 img-rounded img-responsive" src="{{user.avatar.url}}" alt="" width="90" height="80">
+      </div>
+      <div class="d-flex flex-column ">
+         <hr class="mt-0 mb-1"> 
+         <p class="d-flex justify-content-between"><strong>Username:</strong> @{{user.username}}</p>
+         <hr class="mt-0 mb-1"> 
+         <p class="d-flex justify-content-between"><strong>Fullname:</strong> {{user.fullname}}</p>
+         <hr class="mt-0 mb-1"> 
+         <p class="d-flex justify-content-between"><strong>Email:</strong> {{user.email}}</p>
+         <hr class="mt-0 mb-1">
+         <p class="d-flex justify-content-between"><strong>Phone:</strong> {{user.phone}}</p>
+         <hr class="mt-0 mb-1">
+         <p class="d-flex justify-content-between"><strong>Address:</strong>{{user.address}}</p>
+         <hr class="mt-0"> 
+
+         <a href="{% url 'edit-profile' %}" class="btn btn-primary"><i class="fas fa-edit"></i> Update Profile</a>
+      </div>
+   </div>
+ </div>
+</div>
+
+{% endblock content %}

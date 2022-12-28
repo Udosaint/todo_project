@@ -1,0 +1,21 @@
+{% extends 'todo/main.html' %} 
+ 
+{% load static %}
+
+
+
+{% block content %}
+    
+<div class="container-fluid text-center col-md-4 col-sm-8 ">
+  <div class=" card card-body text-center">
+
+    <div class="text-center">
+      <img class="mb-2 text-center" src="{% static '/images/checked.png' %}" alt="" width="90" height="90">
+    </div>
+    <h4 class="mt-3 mb-2 text-muted">Verification Successfully</h4>
+    <a class="nav-link" href="{% url 'index' %}">Click here to Login</a>
+
+  </div>
+</div>
+
+{% endblock %}

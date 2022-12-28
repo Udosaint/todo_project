@@ -1,0 +1,5 @@
+celery worker comand
+celery -A todo_project.celery worker --pool=solo -l info
+
+celery beat command
+celery -A todo_project beat -l info

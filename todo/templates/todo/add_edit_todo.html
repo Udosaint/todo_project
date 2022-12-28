@@ -1,0 +1,66 @@
+ {% extends 'todo/main.html' %} 
+ 
+ {% load static %}
+ 
+
+
+{% block content %}
+{% if page == "Add" %}
+
+<div class="container-fluid text-center col-md-4 col-sm-8">
+  <div class="card border-primary mb-3 col-md-8" style="width: 30rem; ">
+    <div class="card-header text-uppercase">
+      <p>Add Todo 
+        <a href="{% url 'todo' %}" class="nav-link float-end"><i class="fas fa-arrow-left"></i> Back</a>
+      </p>
+    </div> 
+    <div class="card-body">
+
+      <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-floating">
+          {{form.name}}
+          {% comment %} <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com"> {% endcomment %}
+          <label for="floatingInput">Todo name</label>
+        </div>
+        <div class="form-floating mt-1">
+          {{form.description}}
+          {% comment %} <textarea  class="form-control" name="description" row="10" id="floatingPassword" placeholder="Password"></textarea> {% endcomment %}
+          <label for="floatingPassword">Description</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Add Todo</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% else %}
+<div class="container-fluid text-center col-md-4 col-sm-8">
+  <div class="card border-primary mb-3 col-md-8" style="width: 30rem; ">
+    <div class="card-header text-uppercase">
+      <p>{{page}} Todo 
+        <a href="{% url 'todo' %}" class="nav-link float-end"><i class="fas fa-arrow-left"></i> Back</a>
+      </p>
+    </div> 
+    <div class="card-body">
+
+      <form method="POST" action="">
+        {% csrf_token %}
+        <div class="form-floating">
+          {{form.name}}
+          {% comment %} <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com"> {% endcomment %}
+          <label for="floatingInput">Todo name</label>
+        </div>
+        <div class="form-floating mt-1">
+          {{form.description}}
+          {% comment %} <textarea  class="form-control" name="description" row="10" id="floatingPassword" placeholder="Password"></textarea> {% endcomment %}
+          <label for="floatingPassword">Description</label>
+        </div>
+        <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">{{page}} Todo</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endif %}
+{% endblock content %}
