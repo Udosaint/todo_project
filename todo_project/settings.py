@@ -25,17 +25,21 @@ SECRET_KEY = 'django-insecure-maiq0_8=8ih-fqdl72&r)4lp*kj)zimgk8u1ncg#j1x#5lo%7g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 #email testing on console
 #EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-EMAIL_HOST = 'smtp.mailtrap.io'
-EMAIL_HOST_USER = '04da8499375150'
-EMAIL_HOST_PASSWORD = '04bbddfcb50c13'
-EMAIL_PORT = '2525'
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '04da8499375150'
+# EMAIL_HOST_PASSWORD = '04bbddfcb50c13'
+# EMAIL_PORT = '2525'
 
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '99e72b16142071'
+EMAIL_HOST_PASSWORD = '936aab672aac86'
+EMAIL_PORT = '2525'
 
 
 # Application definition
@@ -76,7 +80,7 @@ REST_FRAMEWORK = {
     "NON_FIELD_ERROR_KEY": "errors",
 
     "DEFAULT_AUTHENTICATION_CLASSES" :[
-        "rest_framework.authentication.SessionAuthentication",
+        #"rest_framework.authentication.SessionAuthentication",
         "rest_framework.authentication.TokenAuthentication",
 
     ], 

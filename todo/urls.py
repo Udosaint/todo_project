@@ -3,8 +3,10 @@ from todo import views
 
 urlpatterns = [
     path("", views.Index,  name="index"),
+
     path("test", views.test,  name="test"),
-    path("register/", views.Signup,  name="register"),
+    path("register/", views.Signup,  name="register"),    
+    path("verify-account/", views.VerifyAccount,  name="verify-account"),
     path("logout/", views.UserLogout,  name="logout"),
 
 
@@ -15,6 +17,7 @@ urlpatterns = [
     path("todo/complete/<str:id>/", views.CompleteTodo,  name="complete-todo"),
 
 
+    path("todo/change-password/", views.ChangePassword,  name="change-password"),
     path("todo/profile/", views.Profile,  name="profile"),
     path("todo/edit-profile/", views.UpdateProfile,  name="edit-profile"),
 
@@ -22,4 +25,7 @@ urlpatterns = [
     path("register-success/", views.RegisterSuccess,  name="register-success"),
     path("todo/verify-email/<str:token>", views.VerifyEmail,  name="verify-email"),
     path("verify-success/", views.VerifySuccess,  name="verify-success"),
+
+    path("password-reset/", views.PasswordReset,  name="password-reset"),
+    path("reset/", views.Reset,  name="reset"),
 ]

@@ -5,4 +5,4 @@
 > This todo task comprises of user registration and login, email sending, profile and many more
 >
 
-![The San Juan Mountains are beautiful!](/images/sc1.png "San Juan Mountains")
+![UD-TASK ]([/images/sc1.png](https://github.com/Udosaint/todo_project/blob/master/static/images/sc1.png))

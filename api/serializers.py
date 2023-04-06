@@ -3,15 +3,17 @@ from rest_framework.validators import ValidationError
 from rest_framework.authtoken.models import Token
 
 from .models import User
-from todo.models import Todo
+from todo.models import Otp, Todo
 
 
 class RegisterSerializer(serializers.ModelSerializer):
+    username = serializers.CharField()
     password2 = serializers.CharField()
     email = serializers.EmailField()
     class Meta:
         model = User
-        fields = ['username', 'email', 'password', 'password2']
+        fields = ['username'.lower(), 'email'.lower(), 'password', 'password2']
+
 
     def validate(self, attrs):
 
@@ -34,7 +36,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         password2 = self.validated_data['password2']
 
         if password != password2:
-            raise ValidationError({'password':'Password do not match'})
+            raise ValidationError({'error':'Password do not match'})
 
         user.set_password(password)
         user.save()
@@ -68,3 +70,20 @@ class UpdateUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['fullname', 'address', 'phone', 'avatar']
+
+class UpdateUserDetailsSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ['fullname', 'address', 'phone']
+
+class UserChangePasswordSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = User
+        fields = ['new_password1', 'new_password2']
+class OTPSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Otp
+        fields = ['pin']
